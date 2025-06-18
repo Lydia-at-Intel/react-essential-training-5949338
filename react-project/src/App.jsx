@@ -1,10 +1,10 @@
 import "./App.css";
 
-function Header(props) {
+function Header({ name, year }) {
   return (
     <header>
-      <h1>Welcome {props.name} to My React App</h1>
-      <p>Copyright &copy; {props.year}</p>
+      <h1>Welcome {name} to My React App</h1>
+      <p>Copyright &copy; {year}</p>
     </header>
   );
 }
