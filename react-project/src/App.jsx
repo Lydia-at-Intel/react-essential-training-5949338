@@ -9,17 +9,29 @@ function Header({ name, year }) {
   );
 }
 
+const items = ["Item 1", "Item 2", "Item 3"];
+
+function Main({ dishes }) {
+  return (
+    <main>
+      <h2>My React App</h2>
+      <p>This is a simple React application.</p>
+      <ul>
+        {dishes.map((dish, index) => (
+          <li key={index} style={{ listStyleType: "none" }}>
+            {dish}
+          </li>
+        ))}
+      </ul>
+    </main>
+  );
+}
+
 function App() {
   return (
     <div>
       <Header name="Fred" year={new Date().getFullYear()} />
-      <main>
-        <p>This is a simple React application.</p>
-        <p>Feel free to explore and modify the code!</p>
-      </main>
-      <footer>
-        <p>My React App</p>
-      </footer>
+      <Main dishes={items} />
     </div>
   );
 }
