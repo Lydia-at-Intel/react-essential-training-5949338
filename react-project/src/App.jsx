@@ -1,9 +1,10 @@
 import "./App.css";
 
-function Header() {
+function Header(props) {
   return (
     <header>
-      <h1>Welcome to My React App</h1>
+      <h1>Welcome {props.name} to My React App</h1>
+      <p>Copyright &copy; {props.year}</p>
     </header>
   );
 }
@@ -11,13 +12,13 @@ function Header() {
 function App() {
   return (
     <div>
-      <Header />
+      <Header name="Fred" year={new Date().getFullYear()} />
       <main>
         <p>This is a simple React application.</p>
         <p>Feel free to explore and modify the code!</p>
       </main>
       <footer>
-        <p>&copy; 2023 My React App</p>
+        <p>My React App</p>
       </footer>
     </div>
   );
