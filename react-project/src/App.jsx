@@ -23,10 +23,11 @@ const dishObjects = items.map((dish, i) => ({
   title: dish,
 }));
 
-function Main({ dishes }) {
+function Main({ dishes, openStatus, onStatus }) {
   return (
     <React.Fragment>
-      <h2>Today's Special Dishes</h2>
+      <button onClick={() => onStatus(!openStatus)}> I want to be open</button>
+      <h2>Welcome to this restaurant. {openStatus ? "Open" : "Closed"}</h2>
       <main>
         <img
           src={chef}
@@ -57,7 +58,7 @@ function App() {
         {status ? "Close" : "Open"} Restaurant
       </button>
       <Header name="Lydia" year={new Date().getFullYear()} />
-      <Main dishes={dishObjects} />
+      <Main dishes={dishObjects} openStatus={status} onStatus={setStatus} />
     </div>
   );
 }
