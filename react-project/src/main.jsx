@@ -3,6 +3,6 @@ import App from "./App.jsx";
 import "./index.css";
 
 const [, , third] = ["Lion", "Tiger", "Bear"];
-console.log(third);
+// console.log(third);
 
 createRoot(document.getElementById("root")).render(<App />);
