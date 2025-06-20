@@ -11,6 +11,8 @@ function Header({ name, year }) {
 
 const items = ["Item 1", "Item 2", "Item 3", "Minestrone Soup"];
 
+// forming data before rendering it makes it more stable and faster to process
+// keeps it in sync
 const dishObjects = items.map((dish, i) => ({
   id: i,
   title: dish,
@@ -24,9 +26,9 @@ function Main({ dishes }) {
       <h2>My React App</h2>
       <p>This is a simple React application.</p>
       <ul>
-        {dishes.map((dish, index) => (
-          <li key={index} style={{ listStyleType: "none" }}>
-            {dish}
+        {dishes.map((dish) => (
+          <li key={dish.id} style={{ listStyleType: "none" }}>
+            {dish.title}
           </li>
         ))}
       </ul>
