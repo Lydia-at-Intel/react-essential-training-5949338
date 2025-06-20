@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import "./App.css";
 import chef from "./images/chef.jpg";
 
@@ -48,9 +48,13 @@ function Main({ dishes, openStatus, onStatus }) {
 }
 
 function App() {
-  //const [status, setStatus] = useState(true);
-  //console.log(status);
   const [status, toggle] = useReducer((status) => !status, true);
+
+  useEffect(() => {
+    console.log(`The restaurant is ${status ? "open" : "closed"}.`);
+  }, []); // dependency array is empty, so this runs only once
+  // but if you pass in [status], it will run every time status changes
+
   return (
     <div>
       <h1>The restaurant is currently {status ? "open" : "closed"}</h1>
